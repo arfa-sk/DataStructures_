@@ -181,3 +181,30 @@ sort_stack(s)
 
 print("\nSorted Stack:")
 s.print_stack()  # Output: 1 --> 2 --> 3 --> 4 --> NULL
+
+
+def evaluate_rpn_linkedlist(expression):
+    stack = Stack()
+    operators = {'+', '-', '*', '/'}
+
+    for token in expression:
+        if token not in operators:  # If it's a number, push to stack
+            stack.push(int(token))
+        else:  # It's an operator, pop two numbers and apply operation
+            b = stack.pop()
+            a = stack.pop()
+            if token == '+':
+                stack.push(a + b)
+            elif token == '-':
+                stack.push(a - b)
+            elif token == '*':
+                stack.push(a * b)
+            elif token == '/':
+                stack.push(int(a / b))  # Integer division for consistency
+
+    return stack.pop()  # Final result
+
+
+# Example Usage
+
+print("Result:", evaluate_rpn_linkedlist(["2", "5", "+", "4", "*"]))  # Output: 16

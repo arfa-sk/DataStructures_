@@ -1,4 +1,4 @@
-class StackArray:
+class StackArrayList:
     def __init__(self):
         self.stack = []
 
@@ -21,8 +21,9 @@ class StackArray:
 
 
 
-stack_arr = StackArray()
+stack_arr = StackArrayList()
 stack_arr.push(10)
 stack_arr.push(20)
 stack_arr.pop()
 stack_arr.push(30)
+
